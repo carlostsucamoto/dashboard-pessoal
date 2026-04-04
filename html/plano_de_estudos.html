@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plano de estudos</title>
+</head>
+<body>
+    <h1>calendário pessoal e plano de estudos</h1>
+    <h2>rotina semanal</h2>
+    <div>
+        <div>
+            <h3>Segunda-feira</h3>
+            <input type="text">
+            <select  id="filtro-segunda">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-segunda">+</button> <ul id="lista-segunda"></ul> </div>
+        </div>
+        <div>
+            <h3>Terça-feira</h3>
+            <input type="text">
+            <select  id="filtro-terça">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-terça">+</button> <ul id="lista-terça"></ul> </div>
+        </div>
+        <div>
+            <h3>Quarta-feira</h3>
+            <input type="text">
+            <select  id="filtro-quarta">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-quarta">+</button> <ul id="lista-quarta"></ul> </div>
+        </div>
+        <div>
+            <h3>Quinta-feira</h3>
+            <input type="text">
+            <select  id="filtro-quinta">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-quinta">+</button> <ul id="lista-quinta"></ul> </div>
+        </div>
+        <div>
+            <h3>Sexta-feira</h3>
+            <input type="text">
+            <select  id="filtro-sexta">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-sexta">+</button> <ul id="lista-sexta"></ul> </div>
+        </div>
+        <div>
+            <h3>Sábado</h3>
+            <input type="text">
+            <select  id="filtro-sabado">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-sabado">+</button> <ul id="lista-sabado"></ul> </div>
+        </div>
+        <div>
+            <h3>Domingo</h3>
+            <input type="text">
+            <select  id="filtro-domingo">
+                <option value="alto">Alta importância</option>
+                <option value="médio">Média importância</option>
+                <option value="baixo">Baixa importância</option>
+            </select>
+            <button id="btn-domindo">+</button> <ul id="lista-domingo"></ul> </div>
+        </div>
+        <button id="salvar-semana">Salvar semana</button>
+    </div>
+    <h2>Calendário Mensal</h2>
+    
+    <div id="calendario-container">
+        
+        <div id="calendario-header">
+            <button id="btn-mes-anterior">Voltar</button>
+            <h3 id="mes-atual">Abril 2026</h3>
+            <button id="btn-mes-proximo">Avançar</button>
+        </div>
+
+        <div id="dias-da-semana">
+            <div>Dom</div>
+            <div>Seg</div>
+            <div>Ter</div>
+            <div>Qua</div>
+            <div>Qui</div>
+            <div>Sex</div>
+            <div>Sáb</div>
+        </div>
+
+        <div id="grid-dias"></div>
+
+    </div>
+</body>
+</html>
