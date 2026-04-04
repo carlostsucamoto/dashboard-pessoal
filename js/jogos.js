@@ -3,44 +3,53 @@ const meuBotao = document.getElementById("adicionar-jogo");
 const nomeJogo = document.getElementById("nome-jogo");
 const generoJogo = document.getElementById("genero-jogo");
 const vontadeJogo = document.getElementById("vontade-jogo");
-const horasJogo = document.getElementById("horas-jogo");
+const imagemJogo = document.getElementById("imagem-jogo");
 const sortearJogo = document.getElementById("botao-sortear");
 
 let listaJogos = JSON.parse(localStorage.getItem("meuBacklog")) || [];
+
+function salvarEAtualizar() {
+    localStorage.setItem("meuBacklog", JSON.stringify(listaJogos));
+    atualizarLista();
+}
+
+function deletarJogo(id) {
+    if (confirm("Deseja remover este jogo?")) {
+        listaJogos = listaJogos.filter(j => j.id !== id);
+        salvarEAtualizar();
+    }
+}
+
+function editarVontade(id, novaVontade) {
+    let jogo = listaJogos.find(j => j.id === id);
+    if (jogo) {
+        jogo.vontade = novaVontade;
+        localStorage.setItem("meuBacklog", JSON.stringify(listaJogos));
+    }
+}
 
 meuBotao.addEventListener("click", function () {
     let nomeDigitado = nomeJogo.value;
     let generoDigitado = generoJogo.value;
     let vontadeDigitado = vontadeJogo.value;
-    let horasDigitadas = horasJogo.value;
+    let imagemDigitada = imagemJogo.value;
 
-    if (nomeDigitado.trim() === "") {
-        alert("Erro: O nome do jogo não pode ficar em branco!");
+    if (nomeDigitado.trim() === "" || generoDigitado.trim() === "" || vontadeDigitado.trim() === "") {
+        alert("Erro: Preencha todos os campos!");
         return;
     }
 
-    let jogoJaExiste = listaJogos.some(function(jogoDaEstante) {
-        return jogoDaEstante.nome.toLowerCase() === nomeDigitado.toLowerCase();
+    let jogoJaExiste = listaJogos.some(function(j) {
+        return j.nome.toLowerCase() === nomeDigitado.toLowerCase();
     });
 
     if (jogoJaExiste) {
-        alert("Erro: Este jogo já está no seu Backlog!");
+        alert("Erro: Este jogo já está na lista!");
         return; 
     }
 
-    if (generoDigitado.trim() === "") {
-        alert("Erro: O gênero do jogo não pode ficar em branco!");
-        return;
-    }
-
-    if (vontadeDigitado.trim() === "") {
-        alert("Erro: A vontade do jogo não pode ficar em branco!");
-        return;
-    }
-
-    if (horasDigitadas.trim() === "") {
-        alert("Erro: As horas não podem ficar em branco!");
-        return;
+    if (imagemDigitada.trim() === "") {
+        imagemDigitada = "https://via.placeholder.com/150x200?text=Sem+Capa";
     }
 
     let jogoNovo = {
@@ -48,38 +57,56 @@ meuBotao.addEventListener("click", function () {
         nome: nomeDigitado,
         genero: generoDigitado,
         vontade: vontadeDigitado,
-        horas: Number(horasDigitadas)
+        imagem: imagemDigitada
     };
 
     listaJogos.push(jogoNovo);
-    localStorage.setItem("meuBacklog", JSON.stringify(listaJogos));
-    
-    atualizarLista();
+    salvarEAtualizar();
 
     nomeJogo.value = "";
     generoJogo.value = "";
     vontadeJogo.value = ""; 
-    horasJogo.value = "";
+    imagemJogo.value = "";
     nomeJogo.focus();
-})
+});
 
 sortearJogo.addEventListener("click", function () {
     if (listaJogos.length === 0) {
         alert("Adicione um jogo antes de sortear");
         return;
     }
-    let jogoAleatorio = Math.floor(Math.random() * listaJogos.length);
-    let jogoEscolhido = listaJogos[jogoAleatorio];
-    
-    sortearJogo.innerHTML = "Jogue: " + jogoEscolhido.nome;
-})
+
+    let sorteado = listaJogos[Math.floor(Math.random() * listaJogos.length)];
+    sortearJogo.innerHTML = "Jogue: " + sorteado.nome;
+});
 
 function atualizarLista() {
     vitrineJogos.innerHTML = "";
+
     listaJogos.forEach(function(jogo) {
-        let itemDaLista = document.createElement("li");
-        itemDaLista.innerHTML = `<strong>${jogo.nome}</strong> - ${jogo.genero} (Vontade: ${jogo.vontade}) - ⏳ ${jogo.horas}h`;
-        vitrineJogos.appendChild(itemDaLista);
+        let item = document.createElement("li");
+        item.style.listStyle = "none";
+
+        item.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                <img src="${jogo.imagem}" style="width: 80px; height: 110px; object-fit: cover; border-radius: 5px;">
+                <div style="flex-grow: 1;">
+                    <strong style="font-size: 1.1em;">${jogo.nome}</strong><br>
+                    <span>${jogo.genero}</span><br>
+
+                    <small>Status: </small>
+                    <select onchange="editarVontade(${jogo.id}, this.value)">
+                        <option value="Alta" ${jogo.vontade === "Alta" ? "selected" : ""}>Alta</option>
+                        <option value="Media" ${jogo.vontade === "Media" ? "selected" : ""}>Media</option>
+                        <option value="Baixa" ${jogo.vontade === "Baixa" ? "selected" : ""}>Baixa</option>
+                    </select>
+
+                    <button onclick="deletarJogo(${jogo.id})" style="margin-left: 10px; color: red;">Apagar</button>
+                </div>
+            </div>
+        `;
+
+        vitrineJogos.appendChild(item);
     });
 }
 
