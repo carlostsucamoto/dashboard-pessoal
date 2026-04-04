@@ -4,27 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backlog de Jogos</title>
+    <link rel="stylesheet" href="../css/jogos.css">
 </head>
 <body>
-    <h1>Backlog de jogos</h1>
-    <p>Esse espaço é dedicado para meu hobby de videogames</p>
-    <a href="/index.html">Voltar</a> 
 
-    <div>
-        <input type="text" placeholder="Nome do jogo" id="nome-jogo">
-        <input type="text" placeholder="Gênero (ex: RPG, Ação)" id="genero-jogo">
-        <input type="text" placeholder="Vontade (ex: alta, média, baixa)" id="vontade-jogo">
-        <input type="text" placeholder="Link da imagem (URL)" id="imagem-jogo">
-        <button id="adicionar-jogo">Adicionar</button>
-    
-        <hr>
-        
+    <h1>Backlog de Jogos</h1>
+    <p>Gerencie seus jogos de forma inteligente </p>
+
+    <a href="/index.html">⬅ Voltar</a>
+
+    <div class="container">
+
+        <!-- INPUTS -->
+        <div class="inputs">
+            <input type="text" placeholder="Nome do jogo" id="nome-jogo">
+            <input type="text" placeholder="Gênero" id="genero-jogo">
+            <input type="text" placeholder="Vontade (Alta, Media, Baixa)" id="vontade-jogo">
+            <input type="text" placeholder="URL da imagem" id="imagem-jogo">
+            <button id="adicionar-jogo">Adicionar</button>
+        </div>
+
+        <!-- BUSCA E FILTRO -->
+        <div class="filtros">
+            <input type="text" placeholder="Buscar jogo..." id="busca-jogo">
+
+            <select id="filtro-status">
+                <option value="todos">Todos</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <!-- CONTADOR -->
+        <p id="contador"></p>
+
+        <!-- SORTEIO -->
         <button id="botao-sortear">Sortear Jogo</button>
 
+        <div id="resultado-sorteio"></div>
+
+        <!-- LISTA -->
         <ul id="lista-de-jogos"></ul>
+
     </div>
 
     <script src="../js/jogos.js"></script>
-    <link rel="stylesheet" href="../css/jogos.css">
 </body>
 </html>

@@ -1,81 +1,46 @@
-/* RESET BÁSICO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI';
     background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
-    color: #ffffff;
-    min-height: 100vh;
+    color: white;
     padding: 20px;
 }
 
-/* TÍTULO */
-h1 {
+h1, p {
     text-align: center;
-    margin-bottom: 10px;
-    font-size: 2.2rem;
 }
 
-/* DESCRIÇÃO */
-p {
-    text-align: center;
-    opacity: 0.8;
-    margin-bottom: 20px;
-}
-
-/* LINK VOLTAR */
 a {
     display: inline-block;
-    margin-bottom: 20px;
-    color: #fff;
+    margin: 10px;
+    color: white;
     text-decoration: none;
-    border: 1px solid #444;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: 0.3s;
 }
 
-a:hover {
-    background-color: #4c4cf8;
-    border-color: #4c4cf8;
-}
-
-/* CONTAINER */
-div {
+.container {
     text-align: center;
 }
 
-/* INPUTS */
-input {
+.inputs input, .filtros input, select {
     margin: 5px;
-    padding: 10px;
+    padding: 8px;
     border-radius: 6px;
     border: none;
-    outline: none;
-    width: 180px;
-    background-color: #2e2e40;
-    color: white;
-    transition: 0.2s;
 }
 
-input:focus {
-    box-shadow: 0 0 5px #4c4cf8;
-}
-
-/* BOTÕES */
 button {
+    padding: 8px 12px;
     margin: 5px;
-    padding: 10px 14px;
     border-radius: 6px;
     border: none;
+    cursor: pointer;
     background-color: #3a3a55;
     color: white;
-    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -84,68 +49,37 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* LISTA */
 ul {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 20px;
 }
 
-/* CARD */
 li {
     list-style: none;
+    margin: 10px auto;
     width: 80%;
-    max-width: 600px;
-    margin-bottom: 15px;
 }
 
-/* CONTEÚDO DO CARD */
 li div {
     display: flex;
-    align-items: center;
     gap: 15px;
     background-color: #2a2a3d;
-    padding: 12px;
+    padding: 10px;
     border-radius: 10px;
-    transition: 0.3s;
+    align-items: center;
 }
 
-/* HOVER DO CARD */
-li div:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(76, 76, 248, 0.6);
-}
-
-/* IMAGEM */
-li img {
+img {
     width: 80px;
     height: 110px;
     object-fit: cover;
-    border-radius: 6px;
 }
 
-/* TEXTO */
-li strong {
-    font-size: 1.2rem;
-}
-
-/* SELECT */
-select {
-    margin-left: 5px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3a3a55;
-    color: white;
-}
-
-/* BOTÃO APAGAR */
-li button {
-    margin-left: 10px;
-    background-color: #552222;
-}
-
-li button:hover {
-    background-color: #ff4d4d;
+/* RESULTADO DO SORTEIO */
+#resultado-sorteio {
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #4c4cf8;
+    width: 60%;
+    display: none;
 }

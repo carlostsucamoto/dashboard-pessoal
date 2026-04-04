@@ -1,113 +1,101 @@
-const vitrineJogos = document.getElementById("lista-de-jogos");
-const meuBotao = document.getElementById("adicionar-jogo");
-const nomeJogo = document.getElementById("nome-jogo");
-const generoJogo = document.getElementById("genero-jogo");
-const vontadeJogo = document.getElementById("vontade-jogo");
-const imagemJogo = document.getElementById("imagem-jogo");
-const sortearJogo = document.getElementById("botao-sortear");
+const listaEl = document.getElementById("lista-de-jogos");
+const botaoAdd = document.getElementById("adicionar-jogo");
+const nome = document.getElementById("nome-jogo");
+const genero = document.getElementById("genero-jogo");
+const vontade = document.getElementById("vontade-jogo");
+const imagem = document.getElementById("imagem-jogo");
 
-let listaJogos = JSON.parse(localStorage.getItem("meuBacklog")) || [];
+const busca = document.getElementById("busca-jogo");
+const filtro = document.getElementById("filtro-status");
 
-function salvarEAtualizar() {
-    localStorage.setItem("meuBacklog", JSON.stringify(listaJogos));
-    atualizarLista();
+const sortearBtn = document.getElementById("botao-sortear");
+const resultado = document.getElementById("resultado-sorteio");
+const contador = document.getElementById("contador");
+
+let lista = JSON.parse(localStorage.getItem("backlog")) || [];
+
+function salvar() {
+    localStorage.setItem("backlog", JSON.stringify(lista));
+    atualizar();
 }
 
-function deletarJogo(id) {
-    if (confirm("Deseja remover este jogo?")) {
-        listaJogos = listaJogos.filter(j => j.id !== id);
-        salvarEAtualizar();
-    }
-}
-
-function editarVontade(id, novaVontade) {
-    let jogo = listaJogos.find(j => j.id === id);
-    if (jogo) {
-        jogo.vontade = novaVontade;
-        localStorage.setItem("meuBacklog", JSON.stringify(listaJogos));
-    }
-}
-
-meuBotao.addEventListener("click", function () {
-    let nomeDigitado = nomeJogo.value;
-    let generoDigitado = generoJogo.value;
-    let vontadeDigitado = vontadeJogo.value;
-    let imagemDigitada = imagemJogo.value;
-
-    if (nomeDigitado.trim() === "" || generoDigitado.trim() === "" || vontadeDigitado.trim() === "") {
-        alert("Erro: Preencha todos os campos!");
+botaoAdd.onclick = () => {
+    if (!nome.value || !genero.value || !vontade.value) {
+        alert("Preencha tudo!");
         return;
     }
 
-    let jogoJaExiste = listaJogos.some(function(j) {
-        return j.nome.toLowerCase() === nomeDigitado.toLowerCase();
+    lista.push({
+        id: Date.now(),
+        nome: nome.value,
+        genero: genero.value,
+        vontade: vontade.value,
+        imagem: imagem.value || "https://via.placeholder.com/150"
     });
 
-    if (jogoJaExiste) {
-        alert("Erro: Este jogo já está na lista!");
-        return; 
+    nome.value = "";
+    genero.value = "";
+    vontade.value = "";
+    imagem.value = "";
+
+    salvar();
+};
+
+function atualizar() {
+    listaEl.innerHTML = "";
+
+    let filtrados = lista.filter(j =>
+        j.nome.toLowerCase().includes(busca.value.toLowerCase())
+    );
+
+    if (filtro.value !== "todos") {
+        filtrados = filtrados.filter(j => j.vontade === filtro.value);
     }
 
-    if (imagemDigitada.trim() === "") {
-        imagemDigitada = "https://via.placeholder.com/150x200?text=Sem+Capa";
-    }
+    contador.innerText = `Total: ${filtrados.length} jogos`;
 
-    let jogoNovo = {
-        id: Date.now(),
-        nome: nomeDigitado,
-        genero: generoDigitado,
-        vontade: vontadeDigitado,
-        imagem: imagemDigitada
-    };
+    filtrados.forEach(jogo => {
+        let li = document.createElement("li");
 
-    listaJogos.push(jogoNovo);
-    salvarEAtualizar();
-
-    nomeJogo.value = "";
-    generoJogo.value = "";
-    vontadeJogo.value = ""; 
-    imagemJogo.value = "";
-    nomeJogo.focus();
-});
-
-sortearJogo.addEventListener("click", function () {
-    if (listaJogos.length === 0) {
-        alert("Adicione um jogo antes de sortear");
-        return;
-    }
-
-    let sorteado = listaJogos[Math.floor(Math.random() * listaJogos.length)];
-    sortearJogo.innerHTML = "Jogue: " + sorteado.nome;
-});
-
-function atualizarLista() {
-    vitrineJogos.innerHTML = "";
-
-    listaJogos.forEach(function(jogo) {
-        let item = document.createElement("li");
-        item.style.listStyle = "none";
-
-        item.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
-                <img src="${jogo.imagem}" style="width: 80px; height: 110px; object-fit: cover; border-radius: 5px;">
-                <div style="flex-grow: 1;">
-                    <strong style="font-size: 1.1em;">${jogo.nome}</strong><br>
-                    <span>${jogo.genero}</span><br>
-
-                    <small>Status: </small>
-                    <select onchange="editarVontade(${jogo.id}, this.value)">
-                        <option value="Alta" ${jogo.vontade === "Alta" ? "selected" : ""}>Alta</option>
-                        <option value="Media" ${jogo.vontade === "Media" ? "selected" : ""}>Media</option>
-                        <option value="Baixa" ${jogo.vontade === "Baixa" ? "selected" : ""}>Baixa</option>
-                    </select>
-
-                    <button onclick="deletarJogo(${jogo.id})" style="margin-left: 10px; color: red;">Apagar</button>
+        li.innerHTML = `
+            <div>
+                <img src="${jogo.imagem}">
+                <div>
+                    <strong>${jogo.nome}</strong><br>
+                    ${jogo.genero}<br>
+                    ${jogo.vontade}
+                    <br>
+                    <button onclick="deletar(${jogo.id})">Apagar</button>
                 </div>
             </div>
         `;
 
-        vitrineJogos.appendChild(item);
+        listaEl.appendChild(li);
     });
 }
 
-atualizarLista();
+function deletar(id) {
+    lista = lista.filter(j => j.id !== id);
+    salvar();
+}
+
+/* BUSCA */
+busca.addEventListener("input", atualizar);
+
+/* FILTRO */
+filtro.addEventListener("change", atualizar);
+
+/* SORTEIO */
+sortearBtn.onclick = () => {
+    if (lista.length === 0) return;
+
+    let jogo = lista[Math.floor(Math.random() * lista.length)];
+
+    resultado.style.display = "block";
+    resultado.innerHTML = `
+        <h2> Sorteado:</h2>
+        <p>${jogo.nome}</p>
+    `;
+};
+
+atualizar();
