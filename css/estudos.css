@@ -62,51 +62,80 @@ margin-bottom: 5px;
 
 /* ===== ROTINA SEMANAL ===== */
 
-body > div {
+.semana-container {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 gap: 15px;
 }
 
-body > div > div {
+.dia-semana {
 background-color: #1e293b;
 padding: 15px;
 border-radius: 12px;
 }
 
+/* ===== CALENDÁRIO ===== */
 
-/* CALENDÁRIO MENSAL                         */
+#calendario-container {
+margin-top: 30px;
+background-color: #1e293b;
+padding: 20px;
+border-radius: 12px;
+}
 
+#calendario-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 15px;
+}
 
+#dias-da-semana {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+text-align: center;
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+/* GRID DO CALENDÁRIO */
 #grid-dias {
 display: grid;
 grid-template-columns: repeat(7, 1fr);
-gap: 4px;
+gap: 5px;
 }
 
-.dia {
-background-color: #ffffff;
-color: #000;
-border: 1px solid #ccc;
+/* DIA NORMAL */
+.dia-quadradinho {
+background-color: #1e293b;
+color: #ffffff;
+border: 1px solid #ffffff;
 height: 100px;
 padding: 5px;
 display: flex;
 flex-direction: column;
-justify-content: flex-start;
+border-radius: 6px;
 }
 
+/* NÚMERO DO DIA */
 .numero-dia {
 font-size: 14px;
 font-weight: bold;
 }
 
-.evento {
+/* INPUT DENTRO DO DIA */
+.input-calendario {
+width: 100%;
+background-color: transparent;
+border: none;
 font-size: 12px;
-margin-top: 4px;
-word-wrap: break-word;
+margin-top: 5px;
+outline: none;
+color: #ffffff;
 }
 
-.vazio {
+/* DIA VAZIO */
+.dia-vazio {
 background-color: transparent;
 border: none;
 }
