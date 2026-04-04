@@ -1,50 +1,92 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: rgb(208, 208, 213);
-color: rgb(0, 0, 0);
-font-size: 16px;
-
-}
-h1
-{
-    text-align: center;
-    padding: 5px;
-    
-}
-p{
-font-style: italic;
-margin: 9px;
-}
-li {
-    text-align: center;
-    display: inline-block;
-    list-style-type:none ;
-    margin: 8px;
-}
-a{
-    text-decoration:none;
-    color: rgb(28, 28, 28);
-     border: 1px solid rgb(36, 36, 36);
-    text-align: center;
-    display: inline-block;
-    font-size:16px;
-    padding: 6px;
-    transition:250ms;
-}
-a:hover {
-    background-color:  rgb(76, 76, 248);
-    color: #ffffff;
-    
-}   
-section{
-    text-align: center;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-}
-footer{
-
-}
-ul {
+/* RESET */
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* HEADER */
+header {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+/* TÍTULO */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* DESCRIÇÃO */
+header p {
+    opacity: 0.8;
+}
+
+/* NAV */
+nav ul {
+    list-style: none;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* LINKS COMO CARDS */
+nav a {
+    text-decoration: none;
+    color: white;
+    background-color: #2a2a3d;
+    padding: 15px 20px;
+    border-radius: 10px;
+    min-width: 220px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+/* HOVER */
+nav a:hover {
+    background-color: #4c4cf8;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(76, 76, 248, 0.6);
+}
+
+/* MAIN */
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* SECTION */
+section {
+    background-color: #2a2a3d;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* HOVER SECTION */
+section:hover {
+    box-shadow: 0 0 10px rgba(76, 76, 248, 0.6);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.6;
 }
