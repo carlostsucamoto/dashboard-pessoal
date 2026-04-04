@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>backlog</title>
+    <title>Backlog de Jogos</title>
 </head>
 <body>
     <h1>Backlog de jogos</h1>
@@ -11,15 +11,22 @@
     <a href="/index.html">Voltar</a> 
 
     <div>
-        <input type="text" placeholder="Nome de um jogo" id="nome-jogo">
-        <input type="text" placeholder="Estilo do jogo" id="estilo-jogo">
-        <input type="text" placeholder="Qual vontade desse jogo" id="vontade-jogo">
+        <input type="text" placeholder="Nome do jogo" id="nome-jogo">
+        <input type="text" placeholder="Gênero (ex: RPG, Ação)" id="genero-jogo">
+        <input type="text" placeholder="Vontade (ex: alta, média, baixa)" id="vontade-jogo">
+        <input type="number" placeholder="Horas jogadas" id="horas-jogo">
+        
         <button id="adicionar-jogo">Adicionar</button>
     
-        <button id="botao-sortear">Sortear um jogo</button>
+        <hr>
+        
+        <button id="botao-sortear">Sortear Jogo</button>
+        <button id="botao-platinados">Ver Platinados</button>
+        <button id="botao-ranking">Ranking de Horas</button>
         
         <ul id="lista-de-jogos"></ul>
     </div>
+
     <script src="../js/jogos.js"></script>
 </body>
 </html>
