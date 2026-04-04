@@ -1,0 +1,112 @@
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color: #0f172a;
+color: #e2e8f0;
+margin: 0;
+padding: 20px;
+}
+
+h1 {
+text-align: center;
+margin-bottom: 30px;
+}
+
+h2 {
+margin-top: 40px;
+margin-bottom: 20px;
+}
+
+h3 {
+margin-bottom: 10px;
+}
+
+div {
+box-sizing: border-box;
+}
+
+input, select {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+border-radius: 8px;
+border: none;
+outline: none;
+}
+
+button {
+padding: 8px 12px;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+background-color: #3b82f6;
+color: white;
+transition: 0.2s;
+}
+
+button:hover {
+background-color: #2563eb;
+}
+
+ul {
+list-style: none;
+padding: 0;
+margin-top: 10px;
+}
+
+li {
+background-color: #1e293b;
+padding: 8px;
+border-radius: 6px;
+margin-bottom: 5px;
+}
+
+/* ===== ROTINA SEMANAL ===== */
+
+body > div {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+}
+
+body > div > div {
+background-color: #1e293b;
+padding: 15px;
+border-radius: 12px;
+}
+
+
+/* CALENDÁRIO MENSAL                         */
+
+
+#grid-dias {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+gap: 4px;
+}
+
+.dia {
+background-color: #ffffff;
+color: #000;
+border: 1px solid #ccc;
+height: 100px;
+padding: 5px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+
+.numero-dia {
+font-size: 14px;
+font-weight: bold;
+}
+
+.evento {
+font-size: 12px;
+margin-top: 4px;
+word-wrap: break-word;
+}
+
+.vazio {
+background-color: transparent;
+border: none;
+}
