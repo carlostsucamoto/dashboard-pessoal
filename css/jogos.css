@@ -113,3 +113,34 @@ img {
     transform: scale(1.08);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
 }
+@media (max-width: 600px) {
+    .inputs, .filtros {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inputs input, .filtros input, select, button {
+        width: 100%;
+        margin: 0;
+        padding: 12px;
+    }
+
+    li {
+        width: 100%;
+    }
+
+    li div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img {
+        width: 120px;
+        height: 160px;
+    }
+
+    #resultado-sorteio {
+        width: 95%;
+    }
+}
