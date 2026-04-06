@@ -29,7 +29,7 @@ botaoAdd.onclick = () => {
         id: Date.now(),
         nome: nome.value,
         genero: genero.value,
-        vontade: vontade.value,
+        vontade: vontade.value.toLowerCase(), /* PADRONIZAÇÃO AQUI */
         imagem: imagem.value || "https://via.placeholder.com/150"
     });
 
@@ -49,7 +49,7 @@ function atualizar() {
     );
 
     if (filtro.value !== "todos") {
-        filtrados = filtrados.filter(j => j.vontade === filtro.value);
+        filtrados = filtrados.filter(j => j.vontade === filtro.value.toLowerCase()); /* GARANTIA AQUI TAMBÉM */
     }
 
     contador.innerText = `Total: ${filtrados.length} jogos`;

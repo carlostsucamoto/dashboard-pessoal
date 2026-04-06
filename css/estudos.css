@@ -135,13 +135,28 @@ li {
     margin-bottom: 20px;
     text-decoration: none;
     color: white;
-    background-color: #2a2a3d;
-    padding: 10px 15px;
+    padding: 10px 18px;
     border-radius: 8px;
+    font-weight: bold;
+
+    background: linear-gradient(270deg, #4c4cf8, #6366f1, #4c4cf8);
+    background-size: 600% 600%;
+
     transition: 0.3s;
+    animation: gradienteAnimado 6s ease infinite;
+}
+@keyframes gradienteAnimado {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .voltar:hover {
-    background-color: #4c4cf8;
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(76, 76, 248, 0.6);
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
 }
