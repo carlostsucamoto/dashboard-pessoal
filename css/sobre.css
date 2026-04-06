@@ -1,26 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
     color: #e2e8f0;
-    margin: 0;
-    padding: 20px;
+    padding: 80px 20px 40px 20px;
+    min-height: 100vh;
 }
-/* CONTAINER PRINCIPAL */
+
 .sobre-container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 60px;
     max-width: 1000px;
-    margin: 50px auto;
+    width: 100%;
+    margin: auto;
     flex-wrap: wrap;
 }
 
-/* FOTO */
 .foto-area {
     flex: 1;
     display: flex;
     justify-content: center;
+    min-width: 250px;
 }
 
 .foto {
@@ -37,14 +44,15 @@ body {
     transform: scale(1.05);
 }
 
-/* TEXTO */
 .texto-area {
     flex: 2;
     max-width: 600px;
+    min-width: 300px;
 }
 
 .texto-area h1 {
     margin-bottom: 15px;
+    font-size: 2.2rem;
 }
 
 .texto-area h2 {
@@ -55,9 +63,10 @@ body {
 .texto-area p {
     margin-bottom: 10px;
     line-height: 1.5;
+    font-size: 0.95rem;
+    opacity: 0.9;
 }
 
-/* LINKS */
 .links {
     list-style: none;
     margin-top: 20px;
@@ -82,21 +91,28 @@ body {
     background-color: #4c4cf8;
     transform: scale(1.05);
 }
+
 .voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     display: inline-block;
-    margin-bottom: 20px;
     text-decoration: none;
     color: white;
     padding: 10px 18px;
     border-radius: 8px;
     font-weight: bold;
-
     background: linear-gradient(270deg, #4c4cf8, #6366f1, #4c4cf8);
     background-size: 600% 600%;
-
     transition: 0.3s;
     animation: gradienteAnimado 6s ease infinite;
 }
+
+.voltar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
+}
+
 @keyframes gradienteAnimado {
     0% {
         background-position: 0% 50%;
@@ -108,7 +124,38 @@ body {
         background-position: 0% 50%;
     }
 }
-.voltar:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-bottom: 25px; 
+}
+
+.skill-tag {
+    background-color: #2a2a3d;
+    color: #a5a5ff; 
+    padding: 8px 16px;
+    border-radius: 20px; 
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid #4c4cf8; 
+    transition: 0.3s;
+    cursor: default; 
+}
+
+.skill-tag:hover {
+    background-color: #4c4cf8;
+    color: white;
+    box-shadow: 0 0 12px rgba(76, 76, 248, 0.6);
+    transform: translateY(-3px); 
+}
+
+/* Deixando os botões de link na mesma linha para economizar espaço */
+.links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+    flex-wrap: wrap;
 }
