@@ -1,50 +1,62 @@
-#  Brainlist - Dashboard Pessoal
+# Brainlist - Dashboard Pessoal
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+## Sobre o Projeto
+O Brainlist é um dashboard pessoal desenvolvido com HTML, CSS e JavaScript puro. A proposta do projeto é funcionar como um segundo cérebro, centralizando informações importantes do dia a dia como estudos, ideias e organização pessoal.
 
-##  Sobre o Projeto
-O **Brainlist** é uma Central de Ideias (Single Page Application) desenvolvida 100% do zero com Vanilla JavaScript, HTML e CSS. 
-
-Idealizado para ser um "Segundo Cérebro" no meu dia-a-dia, o sistema atua como um hub modular para organizar informações úteis, desde lazer até finanças e educação. Este projeto é o meu principal laboratório prático para consolidar fundamentos de engenharia de software, manipulação de DOM e persistência de dados no navegador.
+Além da utilidade prática, o projeto também serve como um ambiente de aprendizado, onde aplico conceitos de lógica de programação, manipulação de DOM e persistência de dados no navegador.
 
 ---
 
-##  Módulos do Sistema
+## Funcionalidades
 
-###  1. Backlog de Jogos (Em Operação)
-Sistema CRUD para gerenciar uma biblioteca pessoal de videogames.
-- **Persistência Local:** Salva os dados na memória do navegador utilizando `localStorage` e `JSON`.
-- **Renderização Dinâmica:** Inserção e atualização da lista na interface sem recarregar a página.
-- **Roleta de Jogos:** Algoritmo matemático (`Math.random`) que atua como um decisor para sortear o próximo jogo da lista.
+### Backlog de jogos
+Sistema de gerenciamento de jogos com operações básicas de criação, leitura e remoção.
+- Armazenamento local com localStorage
+- Atualização dinâmica da interface sem recarregamento
+- Sorteio de jogos utilizando Math.random
 
-###  2. Plano de Estudos (Em Desenvolvimento)
-*Módulo focado na organização de trilhas de aprendizado.*
+### Ideias
+Bloco de notas simples para registro rápido de pensamentos e insights.
+- Validação de entrada para evitar registros vazios
+- Adição e remoção de ideias individualmente
+- Persistência dos dados no navegador via localStorage
 
-###  3. Projetos (Em Desenvolvimento)
-*Painel para acompanhamento de escopo e status de projetos pessoais.*
+### Sobre mim
+Página de apresentação profissional e portfólio.
+- Exibição de trajetória acadêmica e transição de carreira
+- Listagem de competências técnicas (Skills)
+- Links diretos para LinkedIn, GitHub e download de currículo
 
-###  4. Investimentos (Em Desenvolvimento)
-*Ferramenta analítica para gestão financeira.*
+### Plano de estudos (Em desenvolvimento)
+Módulo voltado para organização de rotina e acompanhamento de trilhas de aprendizado.
 
-###  5. Ideias (Em Desenvolvimento)
-*Bloco de notas rápido para capturar pensamentos e insights do dia a dia.*
+### Projetos (Em desenvolvimento)
+Espaço para acompanhamento e gestão de projetos pessoais.
 
 ---
 
-##  Como rodar o projeto
-1. Clone este repositório: `git clone https://github.com/carlostsucamoto/site-pessoal`
-2. Navegue até a pasta raiz e abra o arquivo `index.html` no seu navegador.
-3. Utilize o menu de navegação no cabeçalho para acessar os diferentes módulos do Dashboard.
+## Tecnologias utilizadas
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- LocalStorage API
 
+---
+
+## Como executar o projeto
+1. Clone o repositório:
+git clone https://github.com/carlostsucamoto/site-pessoal
+
+2. Abra o arquivo index.html no seu navegador.
+
+---
 
 ## Sobre o Autor
 
-**Carlos Eduardo Tsucamoto Chiarelli** *Estudante de Análise e Desenvolvimento de Sistemas (FIAP)*
+**Carlos Eduardo Tsucamoto Chiarelli**
+Estudante de Análise e Desenvolvimento de Sistemas (FIAP)
 
-Em processo de transição de carreira, trazendo uma base analítica e metodológica da área da saúde (Bacharel em Odontologia) para o desenvolvimento de software. Além das aplicações web, possuo forte interesse na união entre tecnologia e saúde, como o uso de análise de dados e apps para reabilitação de pacientes.
+Em transição de carreira da área da saúde para tecnologia, com foco em desenvolvimento de software e interesse em aplicações que possam gerar impacto prático no dia a dia. Possui formação em Odontologia, trazendo competências de organização, trabalho em equipe e comunicação para o ambiente de engenharia de software.
 
-
-- [LinkedIn]https://www.linkedin.com/in/carlos-eduardo-tsucamoto-chiarelli-0a4584247/
-- [GitHub]https://github.com/carlostsucamoto
+- [LinkedIn](https://www.linkedin.com/in/carlos-eduardo-tsucamoto-chiarelli-0a4584247/)
+- [GitHub](https://github.com/carlostsucamoto)
