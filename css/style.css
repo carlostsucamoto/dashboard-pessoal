@@ -1,37 +1,40 @@
-/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
     color: #ffffff;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
 }
 
-/* HEADER */
 header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* TÍTULO */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
-/* DESCRIÇÃO */
+.subtitulo {
+    opacity: 0.7; 
+    font-weight: normal; 
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
 header p {
     opacity: 0.8;
 }
 
-/* NAV */
 nav ul {
     list-style: none;
     margin-top: 25px;
@@ -41,7 +44,6 @@ nav ul {
     gap: 15px;
 }
 
-/* LINKS COMO CARDS */
 nav a {
     text-decoration: none;
     color: white;
@@ -52,46 +54,49 @@ nav a {
     text-align: center;
     transition: 0.3s;
     border: 1px solid transparent;
+    display: block;
 }
 
-/* HOVER */
 nav a:hover {
     background-color: #4c4cf8;
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(76, 76, 248, 0.6);
 }
 
-/* MAIN */
 main {
+    flex: 1;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    align-items: flex-start;
 }
 
-/* SECTION */
 section {
     background-color: #2a2a3d;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    width: 60%;
+    width: 90%;
     max-width: 600px;
     text-align: center;
     transition: 0.3s;
 }
 
-/* HOVER SECTION */
 section:hover {
     box-shadow: 0 0 10px rgba(76, 76, 248, 0.6);
 }
 
-/* FOOTER */
-.rodape{
-    position: absolute;
-    bottom:0%;
-    width: 90%;
+footer {
+    text-align: center;
+    padding: 20px 0 0 0;
+    opacity: 0.7;
+    font-size: 0.9rem;
 }
 
-.subtitulo {
-     opacity: 0.7; font-weight: normal; 
-     font-size: 15px;
+@media (max-width: 600px) {
+    nav a {
+        min-width: 100%;
     }
+    
+    section {
+        width: 100%;
+    }
+}
