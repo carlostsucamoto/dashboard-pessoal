@@ -1,141 +1,147 @@
 body {
-font-family: Arial, Helvetica, sans-serif;
-background-color: #0f172a;
-color: #e2e8f0;
-margin: 0;
-padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
+    color: #e2e8f0;
+    margin: 0;
+    padding: 20px;
 }
 
 h1 {
-text-align: center;
-margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 h2 {
-margin-top: 40px;
-margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 h3 {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 div {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 input, select {
-width: 100%;
-padding: 8px;
-margin-bottom: 10px;
-border-radius: 8px;
-border: none;
-outline: none;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
 }
 
 button {
-padding: 8px 12px;
-border-radius: 8px;
-border: none;
-cursor: pointer;
-background-color: #3b82f6;
-color: white;
-transition: 0.2s;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #4c4cf8;
+    color: white;
+    transition: 0.2s;
 }
 
 button:hover {
-background-color: #2563eb;
+    background-color: #6366f1;
 }
 
 ul {
-list-style: none;
-padding: 0;
-margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
 }
 
 li {
-background-color: #1e293b;
-padding: 8px;
-border-radius: 6px;
-margin-bottom: 5px;
+    background-color: #2a2a3d;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 5px;
 }
 
-/* ===== ROTINA SEMANAL ===== */
-
 .semana-container {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
 .dia-semana {
-background-color: #1e293b;
-padding: 15px;
-border-radius: 12px;
+    background-color: #2a2a3d;
+    padding: 15px;
+    border-radius: 12px;
 }
 
-/* ===== CALENDÁRIO ===== */
-
 #calendario-container {
-margin-top: 30px;
-background-color: #1e293b;
-padding: 20px;
-border-radius: 12px;
+    margin-top: 30px;
+    background-color: #2a2a3d;
+    padding: 20px;
+    border-radius: 12px;
 }
 
 #calendario-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 #dias-da-semana {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-text-align: center;
-font-weight: bold;
-margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-/* GRID DO CALENDÁRIO */
 #grid-dias {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
 }
 
-/* DIA NORMAL */
 .dia-quadradinho {
-background-color: #1e293b;
-color: #ffffff;
-border: 1px solid #ffffff;
-height: 100px;
-padding: 5px;
-display: flex;
-flex-direction: column;
-border-radius: 6px;
+    background-color: #2a2a3d;
+    color: #ffffff;
+    border: 1px solid #4c4cf8;
+    height: 100px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
 }
 
-/* NÚMERO DO DIA */
 .numero-dia {
-font-size: 14px;
-font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-/* INPUT DENTRO DO DIA */
 .input-calendario {
-width: 100%;
-background-color: transparent;
-border: none;
-font-size: 12px;
-margin-top: 5px;
-outline: none;
-color: #ffffff;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    margin-top: 5px;
+    outline: none;
+    color: #ffffff;
 }
 
-/* DIA VAZIO */
 .dia-vazio {
-background-color: transparent;
-border: none;
+    background-color: transparent;
+    border: none;
+}
+.voltar {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #2a2a3d;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.voltar:hover {
+    background-color: #4c4cf8;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(76, 76, 248, 0.6);
 }

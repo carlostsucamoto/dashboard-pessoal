@@ -42,7 +42,15 @@ button {
     background-color: #3a3a55;
     color: white;
     transition: 0.3s;
+   
 }
+
+.voltar:hover {
+    background-color: #4c4cf8;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(76, 76, 248, 0.6);
+}
+
 
 button:hover {
     background-color: #4c4cf8;
@@ -74,7 +82,6 @@ img {
     object-fit: cover;
 }
 
-/* RESULTADO DO SORTEIO */
 #resultado-sorteio {
     margin: 20px auto;
     padding: 15px;
@@ -82,4 +89,14 @@ img {
     background-color: #4c4cf8;
     width: 60%;
     display: none;
+}
+.voltar {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #2a2a3d;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
