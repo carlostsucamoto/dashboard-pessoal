@@ -160,3 +160,6 @@ li {
     transform: scale(1.08);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
 }
+html {
+    font-size: 150%;
+}
