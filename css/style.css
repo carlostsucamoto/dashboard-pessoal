@@ -5,9 +5,12 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
-    color: #ffffff;
+    color: #e2e8f0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
