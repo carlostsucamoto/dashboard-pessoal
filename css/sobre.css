@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    :root {
+    --cor-principal: #4c4cf8; 
+    --cor-fundo-card: #2a2a3d;
+    --texto-padrao: #e2e8f0;
+    --fonte-base: "Inter", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +14,7 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: var(--fonte-base);
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
