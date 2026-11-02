@@ -1,2 +1,8 @@
+node_modules/
+dist/
+.venv/
+.agents/
+.vite/
 *.db
 __pycache__/
+.DS_Store
