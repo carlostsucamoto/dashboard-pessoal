@@ -14,8 +14,8 @@ export const cvData = {
   cvPdfPath: '/curriculo-carlos-chiarelli.pdf',
   tags: ['Salesforce Marketing Cloud', 'FIAP ADS'],
   bio: [
-    'Profissional com forte rigor analítico, focado na arquitetura e desenvolvimento de aplicações web completas. Atuo na entrega de código limpo integrando motores de Back-end (Java, Python e bancos SQL) à construção de interfaces modernas e responsivas no Front-end (React, JavaScript e Tailwind).',
-    'Possuo domínio prático em arquitetura CRUD, estruturação de regras de negócio e manipulação de componentes visuais. Atualmente, atuo com operações de CRM e dados em escala global (Salesforce Marketing Cloud), aplicando automação de rotinas e eficiência na resolução estruturada de problemas complexos.'
+    'Desenvolvedor com foco em aplicações web completas, atuando tanto no Back-end (Java, Python e SQL) quanto no Front-end com interfaces em React, TypeScript e Tailwind. Experiência prática na criação de APIs, modelagem de dados e regras de negócio.',
+    'Atualmente atuo na WPP Commerce com Salesforce Marketing Cloud na conta Nestlé, trabalhando com automação de réguas de relacionamento, estruturação de dados em grande escala e segmentações via SQL.'
   ],
   skills: [
     'JavaScript',
@@ -29,13 +29,12 @@ export const cvData = {
   ],
   aiKnowledge: {
     salesforce:
-      'Na WPP Commerce (atendendo à conta global Nestlé), o Carlos opera réguas de relacionamento em escala (E-mail e WhatsApp) no Salesforce Marketing Cloud, estruturando Data Extensions, regras de segmentação de dados e atuando na engenharia de requisitos com alto rigor analítico.',
+      'Na WPP Commerce (atendendo à conta global Nestlé), o Carlos atua com Salesforce Marketing Cloud (E-mail e WhatsApp), estruturando Data Extensions, consultas SQL e regras de segmentação para réguas de comunicação em grande escala.',
     projetos:
-      'Os projetos de maior destaque são: 1) TokenPulse (cockpit de cotas e proxy de IA integrando a Google Gemini API), 2) FinançasPRO (sistema financeiro e carteira de investimentos com PWA, Chart.js e Wi-Fi sync), 3) PokéCrowlers (RPG roguelike procedural em turnos) e 4) Sistema de Triagem Hospitalar (regras de negócio clínicas em Java OOP).',
+      'Os principais projetos incluem o TokenPulse (monitor de consumo de tokens e cotas da Gemini API), FinançasPRO (gestão financeira e carteira de ativos com PWA), PokéCrowlers (jogo procedural em 3D) e o Sistema de Triagem Hospitalar em Java.',
     java:
-      'O principal case em Java é o "Sistema de Triagem de Pacientes", uma aplicação orientada a objetos (OOP) que simula o fluxo hospitalar classificando prioridades clínicas conforme regras estritas de dor e sintomas com código limpo e arquitetura modular.',
+      'O case em Java é o Sistema de Triagem de Pacientes, uma aplicação orientada a objetos (OOP) que classifica prioridades clínicas de atendimento hospitalar com validações e estrutura modular.',
     transicao:
-      'Carlos cursa Análise e Desenvolvimento de Sistemas na FIAP (previsão dez/2027) e realiza Iniciação Científica em Interface Neuromórfica para decodificação de bioestímulos, unindo rigor analítico à engenharia de software full stack.'
+      'Carlos cursa Análise e Desenvolvimento de Sistemas na FIAP (conclusão em 2027) e realiza Iniciação Científica em Interface Neuromórfica para decodificação de bioestímulos.'
   } as AiKnowledge
 };
-

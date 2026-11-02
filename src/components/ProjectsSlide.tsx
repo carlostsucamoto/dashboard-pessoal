@@ -300,9 +300,9 @@ export const ProjectsSlide: React.FC = () => {
                   {/* BROWSER TOP BAR */}
                   <div className="px-4 py-2.5 bg-zinc-900/90 border-b border-zinc-800 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                      <span className="w-3 h-3 rounded-full bg-[#ff5f56] border border-black/20 shadow-inner"></span>
+                      <span className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-black/20 shadow-inner"></span>
+                      <span className="w-3 h-3 rounded-full bg-[#27c93f] border border-black/20 shadow-inner"></span>
                     </div>
                     <div className="flex-1 max-w-md mx-auto text-center">
                       <div className="px-3 py-1 rounded-md bg-zinc-950/80 border border-zinc-800 text-[11px] font-mono text-zinc-400 truncate">
@@ -316,7 +316,6 @@ export const ProjectsSlide: React.FC = () => {
                   <div className="flex-1 min-h-[380px] sm:min-h-[460px] bg-zinc-950">
                     <iframe
                       srcDoc={LEGACY_HTML_CONTENT}
-                      src="/legacy/index.html"
                       title="Brainlist v1.0 Original"
                       className="w-full h-full border-0 min-h-[380px] sm:min-h-[460px]"
                     />

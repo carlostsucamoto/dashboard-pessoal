@@ -1,52 +1,49 @@
 import React, { useState } from 'react';
 import { cvData } from '../data/cvData';
-import { FileDown, MessageSquareCode } from 'lucide-react';
 import { AiCopilotDrawer } from './AiCopilotDrawer';
+import { Download, MessageSquareCode } from 'lucide-react';
 
 export const AboutSlide: React.FC = () => {
   const [isAiOpen, setIsAiOpen] = useState(false);
 
   return (
-    <div className="card-surface rounded-3xl p-8 sm:p-12 md:p-14 min-h-[520px] flex flex-col justify-between">
-      <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-center md:items-start">
-        {/* FOTO PROFISSIONAL */}
-        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-2xl overflow-hidden border border-zinc-700 flex-shrink-0 shadow-2xl relative">
-          <img
-            src="/Images/eu.jpeg"
-            alt={cvData.name}
-            className="w-full h-full object-cover"
-          />
+    <div className="card-surface rounded-3xl p-8 sm:p-12 md:p-16 min-h-[520px] flex flex-col justify-center">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+        {/* FOTO DE PERFIL SÓBRIA */}
+        <div className="relative group flex-shrink-0">
+          <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-700/80 shadow-2xl relative">
+            <img
+              src="/Images/eu.jpeg"
+              alt={cvData.name}
+              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+            />
+          </div>
         </div>
 
         {/* CONTEÚDO */}
         <div className="flex-1 text-center md:text-left">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 mb-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400">
-              Perfil Profissional
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 mb-2">
+            <span className="text-xs px-3 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 font-mono">
+              {cvData.badge}
             </span>
-            {cvData.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700 font-mono"
-              >
-                {tag}
-              </span>
-            ))}
+            <span className="text-xs px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-mono">
+              {cvData.location}
+            </span>
           </div>
 
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mt-1">
             {cvData.name}
-          </h3>
+          </h2>
           <p className="text-sm text-zinc-400 mt-1.5 font-medium">
             {cvData.role}
           </p>
 
           <div className="mt-6 space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed sm:leading-8">
             <p>
-              Profissional com <strong>forte rigor analítico</strong>, focado na arquitetura e desenvolvimento de aplicações web completas. Atuo na entrega de <strong>código limpo</strong> integrando motores de Back-end (<strong>Java, Python e bancos SQL</strong>) à construção de interfaces modernas e responsivas no Front-end (<strong>React, JavaScript e Tailwind</strong>).
+              Desenvolvedor com foco em <strong>aplicações web completas</strong>, atuando tanto no Back-end (<strong>Java, Python e SQL</strong>) quanto no Front-end com interfaces em <strong>React, TypeScript e Tailwind</strong>. Experiência prática na criação de APIs, modelagem de dados e regras de negócio.
             </p>
             <p>
-              Possuo domínio prático em <strong>arquitetura CRUD</strong>, estruturação de regras de negócio e manipulação de componentes visuais. Atualmente, atuo com <strong>operações de CRM e dados em escala global (Salesforce Marketing Cloud)</strong>, aplicando automação de rotinas e eficiência na resolução estruturada de problemas complexos.
+              Atualmente atuo na <strong>WPP Commerce</strong> com <strong>Salesforce Marketing Cloud</strong> na conta Nestlé, trabalhando com automação de réguas de relacionamento, estruturação de dados e segmentações via SQL.
             </p>
           </div>
 
@@ -59,7 +56,7 @@ export const AboutSlide: React.FC = () => {
               {cvData.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors"
+                  className="px-3 py-1.5 rounded-lg bg-zinc-900 text-zinc-200 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all shadow-sm"
                 >
                   {skill}
                 </span>
@@ -76,7 +73,7 @@ export const AboutSlide: React.FC = () => {
               rel="noreferrer"
               className="px-5 py-2.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/20 inline-flex items-center gap-2 cursor-pointer"
             >
-              <FileDown className="w-4 h-4 text-white" />
+              <Download className="w-4 h-4 text-white" />
               Baixar Currículo (PDF)
             </a>
             <a
@@ -118,4 +115,3 @@ export const AboutSlide: React.FC = () => {
     </div>
   );
 };
-
