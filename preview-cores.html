@@ -1,0 +1,1053 @@
+@<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Eduardo Tsucamoto Chiarelli | Portfólio & Central Executiva</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --bg: #09090b;
+      --card-surface: #141417;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: #1c1c21;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.35);
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .card-surface {
+      background-color: var(--card-surface);
+      border: 1px solid var(--card-border);
+    }
+
+    .nav-btn {
+      background-color: var(--card-surface);
+      color: var(--text-muted);
+      border: 1px solid var(--card-border);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-btn:hover {
+      background-color: var(--card-hover);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn.active {
+      background-color: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 18px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .carousel-track {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cal-day {
+      transition: all 0.15s ease;
+    }
+    .cal-day:hover:not(.empty) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .cal-day.active {
+      background-color: #6366f1;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .proj-filter-btn {
+      background-color: var(--card-surface);
+      color: var(--text-muted);
+      border: 1px solid var(--card-border);
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .proj-filter-btn:hover {
+      background-color: var(--card-hover);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .proj-filter-btn.active-filter {
+      background-color: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8 md:p-10 flex flex-col items-center justify-between min-h-screen">
+
+  <div class="w-full max-w-5xl xl:max-w-6xl flex flex-col items-center my-auto">
+
+    <!-- HEADER EXECUTIVO -->
+    <header class="text-center mb-8 w-full">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] text-zinc-300 mb-3 shadow-sm">
+        Desenvolvedor Full Stack & Analista de Dados
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-2.5">Carlos Eduardo Tsucamoto Chiarelli</h1>
+      <p class="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed">
+        Arquitetura de aplicações web completas, operações de CRM em escala global e resolução estruturada de problemas.
+      </p>
+
+      <!-- NAVEGAÇÃO EM PÍLULAS (SEM EMOJI) -->
+      <nav class="mt-8 flex flex-wrap justify-center gap-3">
+        <button onclick="goToSlide(0)" id="tab-0" class="nav-btn active px-6 py-3 rounded-xl text-xs sm:text-sm font-medium cursor-pointer flex items-center gap-2.5">
+          <svg class="w-4 h-4 opacity-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          Sobre mim
+        </button>
+        <button onclick="goToSlide(1)" id="tab-1" class="nav-btn px-6 py-3 rounded-xl text-xs sm:text-sm font-medium cursor-pointer flex items-center gap-2.5">
+          <svg class="w-4 h-4 opacity-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          Projetos
+        </button>
+        <button onclick="goToSlide(2)" id="tab-2" class="nav-btn px-6 py-3 rounded-xl text-xs sm:text-sm font-medium cursor-pointer flex items-center gap-2.5">
+          <svg class="w-4 h-4 opacity-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Plano de Estudos
+        </button>
+        <button onclick="goToSlide(3)" id="tab-3" class="nav-btn px-6 py-3 rounded-xl text-xs sm:text-sm font-medium cursor-pointer flex items-center gap-2.5">
+          <svg class="w-4 h-4 opacity-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Ideias & Insights
+        </button>
+      </nav>
+    </header>
+
+    <!-- PALCO DO CARROSSEL: FLEXBOX SIDE-BY-SIDE (NUNCA CORTA A BORDA) -->
+    <main class="w-full flex items-center justify-between gap-3 sm:gap-6">
+      
+      <!-- SETA ESQUERDA: FICA 100% FORA DO CARD, COM GAP SEGURO -->
+      <button onclick="prevSlide()" class="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full card-surface hover:bg-zinc-800 text-zinc-300 hover:text-white flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 border border-zinc-700/80 cursor-pointer" title="Anterior (←)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+
+      <!-- VIEWPORT CENTRAL DO CARROSSEL -->
+      <div class="overflow-hidden rounded-3xl flex-1 shadow-2xl">
+        <div id="carousel-track" class="carousel-track flex w-full">
+
+          <!-- ================= SLIDE 0: SOBRE MIM ================= -->
+          <div class="w-full flex-shrink-0">
+            <div class="card-surface rounded-3xl p-8 sm:p-12 md:p-14 min-h-[520px] flex flex-col justify-between">
+              <div class="flex flex-col md:flex-row gap-8 lg:gap-12 items-center md:items-start">
+                
+                <!-- FOTO PROFISSIONAL -->
+                <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-2xl overflow-hidden border border-zinc-700 flex-shrink-0 shadow-2xl relative">
+                  <img src="./Images/eu.jpeg" alt="Carlos Eduardo Tsucamoto" class="w-full h-full object-cover">
+                </div>
+
+                <!-- CONTEÚDO PRINCIPAL -->
+                <div class="flex-1 text-center md:text-left">
+                  
+                  <div class="flex flex-wrap items-center justify-center md:justify-start gap-2.5 mb-3">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Perfil Profissional</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700 font-mono">Salesforce Marketing Cloud</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700 font-mono">FIAP ADS</span>
+                  </div>
+
+                  <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">Carlos Eduardo Tsucamoto Chiarelli</h3>
+                  <p class="text-sm text-zinc-400 mt-1.5 font-medium">Desenvolvedor Full Stack & Especialista em Dados e CRM</p>
+
+                  <div class="mt-6 space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed sm:leading-8">
+                    <p>
+                      Profissional com <strong>forte rigor analítico</strong>, focado na arquitetura e desenvolvimento de aplicações web completas. Atuo na entrega de <strong>código limpo</strong> integrando motores de Back-end (<strong>Java, Python e bancos SQL</strong>) à construção de interfaces modernas e responsivas no Front-end (<strong>React, JavaScript e Tailwind</strong>).
+                    </p>
+                    <p>
+                      Possuo domínio prático em <strong>arquitetura CRUD</strong>, estruturação de regras de negócio e manipulação de componentes visuais. Atualmente, atuo com <strong>operações de CRM e dados em escala global (Salesforce Marketing Cloud)</strong>, aplicando automação de rotinas e eficiência na resolução estruturada de problemas complexos.
+                    </p>
+                  </div>
+
+                  <!-- COMPETÊNCIAS TÉCNICAS (100% MONOCROMÁTICAS + MANIPULAÇÃO DE IA GENERATIVA) -->
+                  <div class="mt-8 pt-6 border-t border-zinc-800/80">
+                    <p class="text-xs text-zinc-400 uppercase tracking-wider font-semibold mb-3">Competências Técnicas Principais</p>
+                    <div class="flex flex-wrap gap-2.5 justify-center md:justify-start text-xs sm:text-sm font-mono">
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">JavaScript</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">Java</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">Python</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">SQL</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">HTML</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">React</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">Node</span>
+                      <span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:border-zinc-700 transition-colors">Manipulação de IA Generativa</span>
+                    </div>
+                  </div>
+
+                  <!-- LINKS DIRETOS + DOWNLOAD CV + ASSISTENTE IA DE CARREIRA -->
+                  <div class="mt-8 flex flex-wrap gap-3.5 justify-center md:justify-start text-sm font-medium">
+                    <a href="./curriculo-carlos-chiarelli.pdf" download="Curriculo-Carlos-Eduardo-Chiarelli.pdf" target="_blank" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/20 inline-flex items-center gap-2 cursor-pointer">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                      Baixar Currículo (PDF)
+                    </a>
+                    <a href="https://www.linkedin.com/in/carlostsucamoto/" target="_blank" class="px-5 py-2.5 rounded-xl bg-zinc-800 text-white hover:bg-zinc-700 transition-all border border-zinc-700 inline-flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                      LinkedIn
+                    </a>
+                    <a href="https://github.com/carlostsucamoto" target="_blank" class="px-5 py-2.5 rounded-xl bg-zinc-800 text-white hover:bg-zinc-700 transition-all border border-zinc-700 inline-flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                      GitHub
+                    </a>
+                    
+                    <!-- RECURSO DE IA GENERATIVA: COPILOT SOBRE O CARLOS -->
+                    <button onclick="toggleAiDrawer()" class="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-indigo-300 border border-indigo-500/30 hover:border-indigo-400 transition-all shadow-md inline-flex items-center gap-2 cursor-pointer">
+                      <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                      Pergunte à IA sobre mim
+                    </button>
+                  </div>
+
+                  <!-- DRAWER INTERATIVO DE IA -->
+                  <div id="ai-drawer" class="hidden mt-6 p-5 rounded-2xl bg-zinc-900/90 border border-indigo-500/30 transition-all text-left">
+                    <div class="flex items-center justify-between pb-3 border-b border-zinc-800">
+                      <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                        <span class="text-xs font-bold text-white uppercase tracking-wider">Copilot do Portfólio (IA)</span>
+                      </div>
+                      <button onclick="toggleAiDrawer()" class="text-zinc-500 hover:text-zinc-300 text-xs cursor-pointer">✕ fechar</button>
+                    </div>
+
+                    <p class="text-xs text-zinc-400 mt-2.5">
+                      Recrutador ou visitante? Clique em uma das perguntas rápidas abaixo para a IA responder baseada no currículo do Carlos:
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-3">
+                      <button onclick="askAiQuestion('salesforce')" class="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 transition-all cursor-pointer">
+                        Como é a experiência com Salesforce?
+                      </button>
+                      <button onclick="askAiQuestion('projetos')" class="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 transition-all cursor-pointer">
+                        Quais são os projetos de maior destaque?
+                      </button>
+                      <button onclick="askAiQuestion('java')" class="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 transition-all cursor-pointer">
+                        Como é o domínio de Back-end com Java?
+                      </button>
+                      <button onclick="askAiQuestion('transicao')" class="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 transition-all cursor-pointer">
+                        Como foi a transição para Tech e FIAP?
+                      </button>
+                    </div>
+
+                    <div id="ai-response-box" class="hidden mt-4 p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-xs leading-relaxed text-zinc-300">
+                      <div class="flex items-center gap-2 text-indigo-400 font-semibold mb-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        Resposta da IA:
+                      </div>
+                      <p id="ai-response-text"></p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= SLIDE 1: PROJETOS (TODOS OS 7 COM FOTOS REAIS) ================= -->
+          <div class="w-full flex-shrink-0">
+            <div class="card-surface rounded-3xl p-6 sm:p-10 md:p-12 min-h-[540px] flex flex-col justify-between">
+              
+              <!-- HEADER DO SLIDE COM FILTROS -->
+              <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 border-b border-zinc-800 pb-5 mb-6">
+                <div>
+                  <div class="flex items-center gap-3">
+                    <h3 class="text-2xl font-bold text-white tracking-tight">Projetos Desenvolvidos</h3>
+                    <span class="text-xs px-3 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 font-mono">8 Aplicações & Memorando</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-zinc-400 mt-1">Ferramentas de IA, sistemas full stack corporativos, back-end em Java, jogos e cápsula histórica</p>
+                </div>
+
+                <!-- FILTROS RÁPIDOS -->
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <button onclick="filterProjects('all')" id="filter-btn-all" class="proj-filter-btn active-filter px-3.5 py-1.5 rounded-lg font-medium cursor-pointer">
+                    Todos (8)
+                  </button>
+                  <button onclick="filterProjects('ia')" id="filter-btn-ia" class="proj-filter-btn px-3.5 py-1.5 rounded-lg font-medium cursor-pointer">
+                    IA & DevTools
+                  </button>
+                  <button onclick="filterProjects('fullstack')" id="filter-btn-fullstack" class="proj-filter-btn px-3.5 py-1.5 rounded-lg font-medium cursor-pointer">
+                    Full Stack & Java
+                  </button>
+                  <button onclick="filterProjects('games')" id="filter-btn-games" class="proj-filter-btn px-3.5 py-1.5 rounded-lg font-medium cursor-pointer">
+                    Jogos & Web
+                  </button>
+                  <button onclick="filterProjects('memorando')" id="filter-btn-memorando" class="proj-filter-btn px-3.5 py-1.5 rounded-lg font-medium cursor-pointer inline-flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Cápsula / Memorando
+                  </button>
+                </div>
+              </div>
+
+              <!-- GRID DE PROJETOS COM SCROLL SUAVE (3 COLUNAS NO DESKTOP) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-h-[540px] overflow-y-auto pr-1 sm:pr-2 custom-scrollbar">
+
+                <!-- 1. TOKENPULSE (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://github.com/carlostsucamoto', '_blank')" data-category="ia">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/tokenpulse.jpg" alt="TokenPulse Cockpit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                      <span class="absolute top-2.5 right-2.5 text-[10px] px-2 py-0.5 rounded-full bg-zinc-950/80 border border-zinc-700/80 text-indigo-300 backdrop-blur-sm font-mono">Gemini API</span>
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">Cockpit IA</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">React • SQLite</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-indigo-400 transition-colors">TokenPulse — Monitor de Cotas IA</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Cockpit para monitorar consumo de tokens em tempo real, consulta de cotas da Google Gemini API e proxy reverso local compatível com OpenAI.
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">Proxy :3001</span>
+                    <a href="https://github.com/carlostsucamoto" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      GitHub
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 2. FINANÇASPRO (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://github.com/carlostsucamoto', '_blank')" data-category="fullstack">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/financaspro.png" alt="FinançasPRO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                      <span class="absolute top-2.5 right-2.5 text-[10px] px-2 py-0.5 rounded-full bg-zinc-950/80 border border-zinc-700/80 text-emerald-300 backdrop-blur-sm font-mono">Wi-Fi Sync</span>
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Full Stack</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">Node.js • Chart.js</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors">FinançasPRO — Gestão & Carteira</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Painel financeiro pessoal e carteira de ativos (Ações, FIIs e Renda Fixa) com acompanhamento de lucros, sincronização no celular via QR Code e modo privacidade.
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">PWA Mobile</span>
+                    <a href="https://github.com/carlostsucamoto" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      GitHub
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 3. POKÉCROWLERS (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://github.com/carlostsucamoto', '_blank')" data-category="games">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/pokecrowler.jpg" alt="PokéCrowlers" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                      <span class="absolute top-2.5 right-2.5 text-[10px] px-2 py-0.5 rounded-full bg-zinc-950/80 border border-zinc-700/80 text-amber-300 backdrop-blur-sm font-mono">Masmorra 3D</span>
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium">Game Dev</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">TypeScript • RPG</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-amber-400 transition-colors">PokéCrowlers — Roguelike RPG</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Exploração procedural de masmorras em 3D e combates por turnos no universo Pokémon, com Pokédex, evolução de níveis, gerenciamento de equipe e save mobile.
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">Pallet Town 3D</span>
+                    <a href="https://github.com/carlostsucamoto" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      GitHub
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 4. SISTEMA DE TRIAGEM HOSPITALAR (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://github.com/carlostsucamoto/Cadastro-e-triagem-de-pacientes', '_blank')" data-category="fullstack">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/triagem.png" alt="Triagem Hospitalar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">Back-end</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">Java OOP</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-indigo-400 transition-colors">Sistema de Triagem de Pacientes</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Simulação hospitalar com regras estritas para classificar prioridades de dor e sintomas clínicos com validação e arquitetura orientada a objetos (OOP).
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">Regras Clínicas</span>
+                    <a href="https://github.com/carlostsucamoto/Cadastro-e-triagem-de-pacientes" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      GitHub
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 5. BACKLOG DE JOGOS & SORTEADOR (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://github.com/carlostsucamoto/backlog-jogos-python', '_blank')" data-category="games">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/backlog.png" alt="Backlog de Jogos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 font-medium">Front-end</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">JS • LocalStorage</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-indigo-400 transition-colors">Backlog de Jogos & Sorteador</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Dashboard interativo com filtros de status, persistência no LocalStorage, algoritmo de sorteio aleatório e integração com capas de jogos.
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">Persistência Local</span>
+                    <a href="https://github.com/carlostsucamoto/backlog-jogos-python" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      GitHub
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 6. PEDRA PAPEL TESOURA (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://pedra-papel-ou-tesoura-git-main-carlostsucamotos-projects.vercel.app/', '_blank')" data-category="games">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/pedra-papel-tesoura.png" alt="Pedra Papel Tesoura" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 font-medium">Web Interativa</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">JavaScript DOM</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-indigo-400 transition-colors">Pedra, Papel ou Tesoura</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Lógica com jogadas randômicas do computador e manipulação de DOM em tempo real hospedado na Vercel com feedback dinâmico.
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">Deploy Vercel</span>
+                    <a href="https://pedra-papel-ou-tesoura-git-main-carlostsucamotos-projects.vercel.app/" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      Vercel Demo
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 7. ADIVINHAÇÃO NUMÉRICA (FOTO REAL) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all group cursor-pointer" onclick="window.open('https://quenumeroestoupensando.vercel.app/', '_blank')" data-category="games">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/adivinhe.png" alt="Jogo de Adivinhação" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                      <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Acessar Projeto
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 font-medium">Web Interativa</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">Random Engine</span>
+                    </div>
+                    <h4 class="font-bold text-base text-white group-hover:text-indigo-400 transition-colors">Jogo de Adivinhação</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Jogo com motor de geração aleatória, controle de tentativas e feedback reativo ao usuário hospedado na Vercel.
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-zinc-500 text-[11px] font-mono">Deploy Vercel</span>
+                    <a href="https://quenumeroestoupensando.vercel.app/" target="_blank" onclick="event.stopPropagation()" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      Vercel Demo
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 8. BRAINLIST V1.0 (CÁPSULA DO TEMPO / MEMORANDO) -->
+                <div class="project-card p-4 rounded-2xl bg-zinc-900/40 border border-amber-500/30 hover:border-amber-500/60 shadow-lg shadow-amber-950/20 flex flex-col justify-between transition-all group cursor-pointer" onclick="openLegacyModal()" data-category="memorando">
+                  <div>
+                    <div class="h-40 w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3.5 relative">
+                      <img src="./Images/brainlist-legacy.svg" alt="Brainlist v1.0 Original" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                      <span class="absolute top-2.5 right-2.5 text-[10px] px-2 py-0.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-amber-300 backdrop-blur-sm font-mono">
+                        Semana 1 FIAP
+                      </span>
+                      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-[2px]">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        Explorar Cápsula Interativa
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5">
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 font-medium">Cápsula do Tempo</span>
+                      <span class="text-[10px] text-zinc-500 font-mono">HTML5 • CSS3 • JS</span>
+                    </div>
+
+                    <h4 class="font-bold text-base text-white group-hover:text-amber-300 transition-colors">Brainlist v1.0 — Onde Tudo Começou</h4>
+                    <p class="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-2">
+                      Dashboard original construído na primeira semana do curso de ADS na FIAP (Abril/2026). Preservado como memorando histórico da jornada e prova da evolução técnica.
+                    </p>
+                  </div>
+
+                  <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5 font-medium">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                      Ver Memorial
+                    </span>
+                    <a href="./legacy/index.html" target="_blank" onclick="event.stopPropagation()" class="text-zinc-400 hover:text-white inline-flex items-center gap-1 text-xs font-medium">
+                      Abrir v1.0
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= SLIDE 2: PLANO DE ESTUDOS COM IA ================= -->
+          <div class="w-full flex-shrink-0">
+            <div class="card-surface rounded-3xl p-8 sm:p-12 min-h-[520px]">
+              
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-zinc-800 pb-5 mb-8">
+                <div>
+                  <h3 class="text-2xl font-bold text-white tracking-tight">Plano de Estudos & Calendário</h3>
+                  <p class="text-sm text-zinc-400 mt-1">Rotina estruturada de matérias da FIAP e cronograma de metas</p>
+                </div>
+                
+                <div class="flex items-center gap-2.5">
+                  <button onclick="toggleAiStudyPrompt()" class="px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/20 text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer">
+                    <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Gerar Trilha com IA
+                  </button>
+                  <span class="text-xs px-3 py-1.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 font-mono">Novembro 2026</span>
+                </div>
+              </div>
+
+              <!-- BARRA EXPANSÍVEL DO GERADOR DE IA -->
+              <div id="ai-study-bar" class="hidden mb-6 p-4 rounded-2xl bg-zinc-900 border border-indigo-500/30 text-xs">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-bold text-white flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                    Gerador de Cronograma com IA
+                  </span>
+                  <button onclick="toggleAiStudyPrompt()" class="text-zinc-500 hover:text-zinc-300 cursor-pointer">✕ fechar</button>
+                </div>
+                <p class="text-zinc-400 mb-3">Escolha um tópico ou digite o que quer estudar para a IA popular seu calendário da semana:</p>
+                
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <button onclick="generateAiStudy('Spring Boot & APIs REST em Java')" class="px-2.5 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 cursor-pointer">
+                    Spring Boot & APIs REST
+                  </button>
+                  <button onclick="generateAiStudy('React 19, Hooks Avançados e Tailwind')" class="px-2.5 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 cursor-pointer">
+                    React 19 & Hooks
+                  </button>
+                  <button onclick="generateAiStudy('Modelagem SQL e Otimização de Queries')" class="px-2.5 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 cursor-pointer">
+                    Modelagem SQL & Índices
+                  </button>
+                </div>
+
+                <div class="flex gap-2">
+                  <input type="text" id="custom-ai-study-input" placeholder="Ou digite outro tema (ex: Docker & CI/CD)..." class="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2 text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500">
+                  <button onclick="generateAiStudy(document.getElementById('custom-ai-study-input').value)" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition-all cursor-pointer">
+                    Gerar Metas
+                  </button>
+                </div>
+              </div>
+
+              <!-- LAYOUT DUAS COLUNAS: CALENDÁRIO + METAS (OCUPA TODO O ESPAÇO HARMONIOSAMENTE) -->
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+                <!-- CALENDÁRIO MENSAL -->
+                <div class="md:col-span-5 p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="text-sm font-bold text-white">Novembro 2026</span>
+                      <div class="flex items-center gap-1.5 text-zinc-400">
+                        <button class="p-1 hover:text-white rounded hover:bg-zinc-800">‹</button>
+                        <button class="p-1 hover:text-white rounded hover:bg-zinc-800">›</button>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-7 gap-1.5 text-center text-[11px] text-zinc-500 font-semibold mb-2">
+                      <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
+                    </div>
+
+                    <div class="grid grid-cols-7 gap-1.5 text-center text-xs sm:text-sm">
+                      <button onclick="selectCalDay(1, 'Domingo')" class="cal-day p-2.5 rounded-xl text-zinc-400 font-medium relative">1</button>
+                      <button onclick="selectCalDay(2, 'Segunda-feira')" class="cal-day active p-2.5 rounded-xl font-medium relative" id="cal-day-2">
+                        2
+                        <span class="w-1.5 h-1.5 rounded-full bg-rose-400 absolute bottom-1 left-1/2 -translate-x-1/2"></span>
+                      </button>
+                      <button onclick="selectCalDay(3, 'Terça-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300 font-medium relative" id="cal-day-3">
+                        3
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 absolute bottom-1 left-1/2 -translate-x-1/2"></span>
+                      </button>
+                      <button onclick="selectCalDay(4, 'Quarta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300 font-medium relative" id="cal-day-4">
+                        4
+                        <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 absolute bottom-1 left-1/2 -translate-x-1/2"></span>
+                      </button>
+                      <button onclick="selectCalDay(5, 'Quinta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300 font-medium relative">5</button>
+                      <button onclick="selectCalDay(6, 'Sexta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300 font-medium relative">
+                        6
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 absolute bottom-1 left-1/2 -translate-x-1/2"></span>
+                      </button>
+                      <button onclick="selectCalDay(7, 'Sábado')" class="cal-day p-2.5 rounded-xl text-zinc-400 font-medium relative">7</button>
+                      
+                      <!-- LINHA 2 -->
+                      <button onclick="selectCalDay(8, 'Domingo')" class="cal-day p-2.5 rounded-xl text-zinc-400">8</button>
+                      <button onclick="selectCalDay(9, 'Segunda-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">9</button>
+                      <button onclick="selectCalDay(10, 'Terça-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">10</button>
+                      <button onclick="selectCalDay(11, 'Quarta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">11</button>
+                      <button onclick="selectCalDay(12, 'Quinta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">12</button>
+                      <button onclick="selectCalDay(13, 'Sexta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">13</button>
+                      <button onclick="selectCalDay(14, 'Sábado')" class="cal-day p-2.5 rounded-xl text-zinc-400">14</button>
+
+                      <!-- LINHA 3 -->
+                      <button onclick="selectCalDay(15, 'Domingo')" class="cal-day p-2.5 rounded-xl text-zinc-400">15</button>
+                      <button onclick="selectCalDay(16, 'Segunda-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">16</button>
+                      <button onclick="selectCalDay(17, 'Terça-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">17</button>
+                      <button onclick="selectCalDay(18, 'Quarta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">18</button>
+                      <button onclick="selectCalDay(19, 'Quinta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">19</button>
+                      <button onclick="selectCalDay(20, 'Sexta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">20</button>
+                      <button onclick="selectCalDay(21, 'Sábado')" class="cal-day p-2.5 rounded-xl text-zinc-400">21</button>
+
+                      <!-- LINHA 4 -->
+                      <button onclick="selectCalDay(22, 'Domingo')" class="cal-day p-2.5 rounded-xl text-zinc-400">22</button>
+                      <button onclick="selectCalDay(23, 'Segunda-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">23</button>
+                      <button onclick="selectCalDay(24, 'Terça-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">24</button>
+                      <button onclick="selectCalDay(25, 'Quarta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">25</button>
+                      <button onclick="selectCalDay(26, 'Quinta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">26</button>
+                      <button onclick="selectCalDay(27, 'Sexta-feira')" class="cal-day p-2.5 rounded-xl text-zinc-300">27</button>
+                      <button onclick="selectCalDay(28, 'Sábado')" class="cal-day p-2.5 rounded-xl text-zinc-400">28</button>
+                    </div>
+                  </div>
+
+                  <div class="mt-5 pt-3.5 border-t border-zinc-800 text-xs text-zinc-400 flex flex-wrap gap-4">
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> Alta Prioridade</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Média</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-400"></span> FIAP Sprint</span>
+                  </div>
+                </div>
+
+                <!-- CRONOGRAMA & TAREFAS DO DIA -->
+                <div class="md:col-span-7 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-4">
+                      <div>
+                        <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">Cronograma</span>
+                        <h4 class="text-lg font-bold text-white mt-0.5" id="selected-day-title">Segunda-feira, 02 de Novembro</h4>
+                      </div>
+                      <span class="text-xs px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 border border-zinc-700" id="tasks-count-badge">2 metas</span>
+                    </div>
+
+                    <ul class="space-y-3 text-xs sm:text-sm" id="day-tasks-list">
+                      <li class="p-3.5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between">
+                        <label class="flex items-center gap-3.5 cursor-pointer text-zinc-200">
+                          <input type="checkbox" checked class="w-4 h-4 rounded bg-zinc-800 border-zinc-700 text-indigo-600 focus:ring-0">
+                          <span class="line-through text-zinc-500">Estruturas de Dados Java (Listas & Pilhas)</span>
+                        </label>
+                        <span class="text-xs px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 font-medium">Alta</span>
+                      </li>
+
+                      <li class="p-3.5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between">
+                        <label class="flex items-center gap-3.5 cursor-pointer text-zinc-200">
+                          <input type="checkbox" class="w-4 h-4 rounded bg-zinc-800 border-zinc-700 text-indigo-600 focus:ring-0">
+                          <span>Exercícios de OOP: Herança e Polimorfismo</span>
+                        </label>
+                        <span class="text-xs px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 font-medium">Alta</span>
+                      </li>
+
+                      <li class="p-3.5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between">
+                        <label class="flex items-center gap-3.5 cursor-pointer text-zinc-200">
+                          <input type="checkbox" class="w-4 h-4 rounded bg-zinc-800 border-zinc-700 text-indigo-600 focus:ring-0">
+                          <span>Revisar arquitetura de componentes React & Tailwind</span>
+                        </label>
+                        <span class="text-xs px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium">Média</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="mt-6 pt-4 border-t border-zinc-800/80 flex gap-2.5">
+                    <input type="text" id="new-study-task" placeholder="Adicionar nova meta para este dia..." class="flex-1 bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500" onkeydown="if(event.key === 'Enter') addStudyTask()">
+                    <button onclick="addStudyTask()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+                      + Meta
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= SLIDE 3: CENTRAL DE IDEIAS ================= -->
+          <div class="w-full flex-shrink-0">
+            <div class="card-surface rounded-3xl p-8 sm:p-12 min-h-[520px] flex flex-col justify-between">
+              <div>
+                <div class="border-b border-zinc-800 pb-5 mb-8 flex justify-between items-center">
+                  <div>
+                    <h3 class="text-2xl font-bold text-white tracking-tight">Minhas Ideias & Insights</h3>
+                    <p class="text-sm text-zinc-400 mt-1">Captura rápida sem fricção para arquitetura de software, dados e estudos</p>
+                  </div>
+                  <span class="text-xs px-3 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 font-mono" id="ideas-count">2 anotações</span>
+                </div>
+
+                <!-- INPUT DE IDEIA -->
+                <div class="flex gap-3 mb-6">
+                  <input type="text" id="idea-input" placeholder="Digite uma nova ideia..." class="flex-1 bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500" onkeydown="if(event.key === 'Enter') addIdea()">
+                  <button onclick="addIdea()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-indigo-600/20 cursor-pointer">
+                    Adicionar
+                  </button>
+                </div>
+
+                <!-- LISTA DE IDEIAS -->
+                <ul class="space-y-3 text-sm" id="ideas-list">
+                  <li class="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between">
+                    <span class="text-zinc-200">Integrar automações de dados no Salesforce Marketing Cloud com APIs em Node.js.</span>
+                    <button onclick="this.parentElement.remove()" class="text-zinc-500 hover:text-rose-400 transition-colors p-1.5 text-base cursor-pointer">✕</button>
+                  </li>
+                  <li class="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between">
+                    <span class="text-zinc-200">Publicar o Backlog de Jogos como uma aplicação independente e linkar no portfólio.</span>
+                    <button onclick="this.parentElement.remove()" class="text-zinc-500 hover:text-rose-400 transition-colors p-1.5 text-base cursor-pointer">✕</button>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-5 border-t border-zinc-800/80 text-xs text-zinc-500 flex justify-between">
+                <span>Persistência local ativa</span>
+                <span>Pressione Enter para salvar rapidamente</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SETA DIREITA: FICA 100% FORA DO CARD, COM GAP SEGURO -->
+      <button onclick="nextSlide()" class="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full card-surface hover:bg-zinc-800 text-zinc-300 hover:text-white flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 border border-zinc-700/80 cursor-pointer" title="Próximo (→)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+    </main>
+
+    <!-- INDICADORES (DOTS) DO CARROSSEL -->
+    <div class="flex justify-center items-center gap-3 mt-8">
+      <button onclick="goToSlide(0)" id="dot-0" class="w-8 h-2 rounded-full bg-indigo-500 transition-all cursor-pointer" title="Sobre mim"></button>
+      <button onclick="goToSlide(1)" id="dot-1" class="w-2 h-2 rounded-full bg-zinc-700 hover:bg-zinc-500 transition-all cursor-pointer" title="Projetos"></button>
+      <button onclick="goToSlide(2)" id="dot-2" class="w-2 h-2 rounded-full bg-zinc-700 hover:bg-zinc-500 transition-all cursor-pointer" title="Plano de Estudos"></button>
+      <button onclick="goToSlide(3)" id="dot-3" class="w-2 h-2 rounded-full bg-zinc-700 hover:bg-zinc-500 transition-all cursor-pointer" title="Ideias & Insights"></button>
+    </div>
+
+    <!-- FOOTER CLEAN -->
+    <footer class="mt-10 text-center text-xs text-zinc-500">
+      <small>© 2026 Carlos Eduardo Tsucamoto Chiarelli • Pressione <kbd class="px-2 py-0.5 rounded bg-zinc-800 font-mono text-[10px] text-zinc-400 border border-zinc-700">←</kbd> e <kbd class="px-2 py-0.5 rounded bg-zinc-800 font-mono text-[10px] text-zinc-400 border border-zinc-700">→</kbd> para navegar</small>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 4;
+
+    function updateCarousel() {
+      const track = document.getElementById("carousel-track");
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      for (let i = 0; i < totalSlides; i++) {
+        const tab = document.getElementById(`tab-${i}`);
+        const dot = document.getElementById(`dot-${i}`);
+        
+        if (i === currentSlide) {
+          tab.classList.add("active");
+          dot.className = "w-8 h-2 rounded-full bg-indigo-500 transition-all cursor-pointer";
+        } else {
+          tab.classList.remove("active");
+          dot.className = "w-2 h-2 rounded-full bg-zinc-700 hover:bg-zinc-500 transition-all cursor-pointer";
+        }
+      }
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    // Suporte ao teclado
+    window.addEventListener("keydown", (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    });
+
+    // Interatividade do Calendário
+    function selectCalDay(day, dayName) {
+      document.querySelectorAll(".cal-day").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+      
+      const dayFormatted = String(day).padStart(2, '0');
+      document.getElementById("selected-day-title").innerText = `${dayName}, ${dayFormatted} de Novembro`;
+    }
+
+    function addStudyTask() {
+      const inp = document.getElementById("new-study-task");
+      const val = inp.value.trim();
+      if (!val) return;
+      const list = document.getElementById("day-tasks-list");
+      const li = document.createElement("li");
+      li.className = "p-3.5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between";
+      li.innerHTML = `
+        <label class="flex items-center gap-3.5 cursor-pointer text-zinc-200">
+          <input type="checkbox" class="w-4 h-4 rounded bg-zinc-800 border-zinc-700 text-indigo-600 focus:ring-0">
+          <span>${val}</span>
+        </label>
+        <span class="text-xs px-2.5 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">Nova</span>
+      `;
+      list.prepend(li);
+      inp.value = "";
+    }
+
+    function addIdea() {
+      const inp = document.getElementById("idea-input");
+      const val = inp.value.trim();
+      if (!val) return;
+      const list = document.getElementById("ideas-list");
+      const li = document.createElement("li");
+      li.className = "p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex items-center justify-between";
+      li.innerHTML = `
+        <span class="text-zinc-200">${val}</span>
+        <button onclick="this.parentElement.remove()" class="text-zinc-500 hover:text-rose-400 transition-colors p-1.5 text-base cursor-pointer">✕</button>
+      `;
+      list.prepend(li);
+      inp.value = "";
+    }
+
+    // ================= RECURSOS DE IA GENERATIVA =================
+
+    // Filtro de Projetos
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.proj-filter-btn');
+      
+      buttons.forEach(b => b.classList.remove('active-filter'));
+      const activeBtn = document.getElementById(`filter-btn-${category}`);
+      if (activeBtn) activeBtn.classList.add('active-filter');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // 1. Assistente do Perfil (Sobre mim)
+    function toggleAiDrawer() {
+      const drawer = document.getElementById("ai-drawer");
+      drawer.classList.toggle("hidden");
+    }
+
+    const aiKnowledge = {
+      salesforce: "Na WPP Commerce (atendendo à conta global Nestlé), o Carlos opera réguas de relacionamento em escala (E-mail e WhatsApp) no Salesforce Marketing Cloud, estruturando Data Extensions, regras de segmentação de dados e atuando na engenharia de requisitos com alto rigor analítico.",
+      projetos: "Os projetos de maior destaque são: 1) TokenPulse (cockpit de cotas e proxy de IA integrando a Google Gemini API), 2) FinançasPRO (sistema financeiro e carteira de investimentos com PWA, Chart.js e Wi-Fi sync), 3) PokéCrawlers (RPG roguelike procedural em turnos) e 4) Sistema de Triagem Hospitalar (regras de negócio clínicas em Java OOP).",
+      java: "O principal case em Java é o 'Sistema de Triagem de Pacientes', uma aplicação orientada a objetos (OOP) que simula o fluxo hospitalar classificando prioridades clínicas conforme regras estritas de dor e sintomas com código limpo e arquitetura modular.",
+      transicao: "Carlos cursa Análise e Desenvolvimento de Sistemas na FIAP (previsão dez/2027) e realiza Iniciação Científica em Interface Neuromórfica para decodificação de bioestímulos, unindo rigor analítico à engenharia de software full stack."
+    };
+
+    function askAiQuestion(topic) {
+      const box = document.getElementById("ai-response-box");
+      const text = document.getElementById("ai-response-text");
+      box.classList.remove("hidden");
+      text.innerText = "Pensando e sintetizando resposta...";
+      
+      setTimeout(() => {
+        text.innerText = aiKnowledge[topic] || "Informação não encontrada no currículo.";
+      }, 350);
+    }
+
+    // 2. Gerador de Cronograma com IA (Estudos)
+    function toggleAiStudyPrompt() {
+      const bar = document.getElementById("ai-study-bar");
+      bar.classList.toggle("hidden");
+    }
+
+    function generateAiStudy(theme) {
+      if (!theme) return;
+      const list = document.getElementById("day-tasks-list");
+      
+      const newTasks = [
+        { title: `Fundamentos e Setup de ${theme}`, priority: "Alta", badge: "bg-rose-500/10 text-rose-400 border-rose-500/20" },
+        { title: `Construção de POC prática com ${theme}`, priority: "Alta", badge: "bg-rose-500/10 text-rose-400 border-rose-500/20" },
+        { title: `Testes, refatoração de código e boas práticas em ${theme}`, priority: "Média", badge: "bg-amber-500/10 text-amber-400 border-amber-500/20" }
+      ];
+
+      list.innerHTML = "";
+      newTasks.forEach(t => {
+        const li = document.createElement("li");
+        li.className = "p-3.5 rounded-xl bg-zinc-900/60 border border-indigo-500/30 flex items-center justify-between";
+        li.innerHTML = `
+          <label class="flex items-center gap-3.5 cursor-pointer text-zinc-200">
+            <input type="checkbox" class="w-4 h-4 rounded bg-zinc-800 border-zinc-700 text-indigo-600 focus:ring-0">
+            <span>${t.title}</span>
+          </label>
+          <span class="text-xs px-2.5 py-0.5 rounded ${t.badge} font-medium">${t.priority}</span>
+        `;
+        list.appendChild(li);
+      });
+
+      document.getElementById("selected-day-title").innerText = `Trilha IA: ${theme}`;
+      document.getElementById("tasks-count-badge").innerText = "3 metas (IA)";
+      document.getElementById("ai-study-bar").classList.add("hidden");
+    }
+
+    // 3. Modal da Cápsula do Tempo / Memorando v1.0
+    function openLegacyModal() {
+      const modal = document.getElementById("legacy-modal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        modal.style.display = "flex";
+      }
+    }
+
+    function closeLegacyModal() {
+      const modal = document.getElementById("legacy-modal");
+      if (modal) {
+        modal.classList.add("hidden");
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  <!-- MODAL INTERATIVO: CÁPSULA DO TEMPO / MEMORANDO HISTÓRICO -->
+  <div id="legacy-modal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="display: none;" onclick="if(event.target === this) closeLegacyModal()">
+    <div class="bg-zinc-950 border border-zinc-800 rounded-3xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <!-- CABEÇALHO DO MODAL -->
+      <div class="px-6 py-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/60">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-base font-bold text-white">Brainlist v1.0 — Cápsula do Tempo</h3>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono">
+                Semana 1 FIAP • Abril 2026
+              </span>
+            </div>
+            <p class="text-xs text-zinc-400">
+              O dashboard original preservado exatamente como foi concebido no início da jornada
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="./legacy/index.html" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-200 border border-zinc-700 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            Nova Aba
+          </a>
+          <button onclick="closeLegacyModal()" class="w-8 h-8 rounded-lg bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- NARRATIVA DE REGISTRO HISTÓRICO -->
+      <div class="px-6 py-3.5 bg-zinc-900/40 border-b border-zinc-800/80 text-xs text-zinc-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>
+            <strong class="text-white">Registro Histórico:</strong> Projeto inicial construído na primeira semana de graduação em ADS na FIAP em HTML/CSS puro, preservado como memorando do início dos estudos.
+          </span>
+        </div>
+        <span class="text-[11px] text-zinc-500 font-mono whitespace-nowrap">
+          Preservado em /legacy
+        </span>
+      </div>
+
+      <!-- BROWSER CHROME MOCKUP + IFRAME INTERATIVO -->
+      <div class="p-4 sm:p-6 flex-1 overflow-hidden flex flex-col bg-zinc-950">
+        <div class="rounded-2xl border border-zinc-800 overflow-hidden flex flex-col flex-1 bg-zinc-900 shadow-inner">
+          <div class="px-4 py-2.5 bg-zinc-900/90 border-b border-zinc-800 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <div class="flex-1 max-w-md mx-auto text-center">
+              <div class="px-3 py-1 rounded-md bg-zinc-950/80 border border-zinc-800 text-[11px] font-mono text-zinc-400 truncate">
+                brainlist://legacy/index-original.html
+              </div>
+            </div>
+            <div class="w-10"></div>
+          </div>
+
+          <div class="flex-1 min-h-[380px] sm:min-h-[460px] bg-zinc-950">
+            <iframe id="legacy-iframe" src="./legacy/index.html" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;pt-br&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&lt;title&gt;Brainlist | Dashboard Pessoal&lt;/title&gt;&lt;style&gt;@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap');:root{--cor-principal:#4c4cf8;--cor-fundo-card:#2a2a3d;--texto-padrao:#e2e8f0;--fonte-base:'Inter',sans-serif;}*{margin:0;padding:0;box-sizing:border-box;}body{background:linear-gradient(135deg,#1e1e2f,#2c2c3e);min-height:100vh;display:flex;flex-direction:column;padding:24px;font-family:var(--fonte-base);color:var(--texto-padrao);}header{text-align:center;margin-bottom:28px;}h1{font-size:2.2rem;margin-bottom:8px;color:#fff;}.subtitulo{opacity:0.7;font-weight:normal;font-size:14px;margin-bottom:8px;}header p{opacity:0.8;font-size:14px;}nav ul{list-style:none;margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}nav a{text-decoration:none;color:white;background-color:var(--cor-fundo-card);padding:12px 20px;border-radius:10px;min-width:160px;text-align:center;transition:0.2s;border:1px solid rgba(255,255,255,0.08);display:block;font-size:13px;font-weight:500;}nav a:hover{background-color:var(--cor-principal);transform:translateY(-2px);}main{flex:1;display:flex;justify-content:center;align-items:flex-start;padding:20px 0;}section{background-color:var(--cor-fundo-card);padding:32px 24px;border-radius:16px;width:100%;max-width:520px;text-align:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 8px 24px rgba(0,0,0,0.3);}footer{text-align:center;padding:20px 0 0 0;opacity:0.6;font-size:12px;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;header&gt;&lt;h1&gt;Central de ideias&lt;/h1&gt;&lt;h2 class=&quot;subtitulo&quot;&gt;Carlos Eduardo Tsucamoto Chiarelli&lt;/h2&gt;&lt;p&gt;Um dashboard pessoal para organização de estudos, projetos, ideias e rotina.&lt;/p&gt;&lt;nav&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;./legacy/html/jogos.html&quot; target=&quot;_blank&quot;&gt;Backlog&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;./legacy/html/plano_de_estudos.html&quot; target=&quot;_blank&quot;&gt;Estudos&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;./legacy/html/projetos.html&quot; target=&quot;_blank&quot;&gt;Projetos&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;./legacy/html/sobre.html&quot; target=&quot;_blank&quot;&gt;Sobre mim&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;./legacy/html/ideias.html&quot; target=&quot;_blank&quot;&gt;Ideias&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;&lt;/header&gt;&lt;main&gt;&lt;section&gt;&lt;p&gt;Escolha uma das seções acima para começar.&lt;/p&gt;&lt;/section&gt;&lt;/main&gt;&lt;footer&gt;&lt;small&gt;© 2026 Carlos Eduardo Tsucamoto Chiarelli • Semana 1 ADS FIAP&lt;/small&gt;&lt;/footer&gt;&lt;/body&gt;&lt;/html&gt;" title="Brainlist v1.0 Original" class="w-full h-full border-0 min-h-[380px] sm:min-h-[460px]"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- RODAPÉ DO MODAL -->
+      <div class="px-6 py-3.5 border-t border-zinc-800 bg-zinc-900/60 flex items-center justify-between text-xs">
+        <span class="text-zinc-500">
+          Página 100% funcional: você pode navegar pelos botões do menu antigo acima.
+        </span>
+        <div class="flex items-center gap-3">
+          <a href="./legacy/index.html" target="_blank" class="text-indigo-400 hover:text-white inline-flex items-center gap-1 font-medium">
+            Abrir Dashboard Original em tela cheia
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <button onclick="closeLegacyModal()" class="px-4 py-1.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-medium cursor-pointer">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
