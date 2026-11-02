@@ -15,7 +15,7 @@ export const AboutSlide: React.FC = () => {
             <img
               src="/Images/eu.jpeg"
               alt={cvData.name}
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
